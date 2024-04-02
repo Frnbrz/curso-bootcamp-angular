@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router'
+import { authGuard } from './guards/auth.guard'
 import { ContactDetailPageComponent } from './pages/contact-detail-page/contact-detail-page.component'
 import { ContactsPageComponent } from './pages/contacts-page/contacts-page.component'
 import { HomePageComponent } from './pages/home-page/home-page.component'
@@ -9,7 +10,7 @@ export const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home' },
   { path: 'home', component: HomePageComponent },
   { path: 'login', component: LoginPageComponent },
-  { path: 'contacts', component: ContactsPageComponent },
+  { path: 'contacts', component: ContactsPageComponent, canActivate: [authGuard] },
   { path: 'contact/:id', component: ContactDetailPageComponent },
   { path: '**', component: NotFoundPageComponent }
 ]
