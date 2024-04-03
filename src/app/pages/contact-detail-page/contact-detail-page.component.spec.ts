@@ -8,10 +8,9 @@ describe('ContactDetailPageComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ContactDetailPageComponent]
-    })
-    .compileComponents();
-    
+      imports: [ContactDetailPageComponent],
+    }).compileComponents();
+
     fixture = TestBed.createComponent(ContactDetailPageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

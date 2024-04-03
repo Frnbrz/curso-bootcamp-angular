@@ -8,10 +8,9 @@ describe('ToolBarComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ToolBarComponent]
-    })
-    .compileComponents();
-    
+      imports: [ToolBarComponent],
+    }).compileComponents();
+
     fixture = TestBed.createComponent(ToolBarComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

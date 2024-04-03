@@ -7,10 +7,13 @@ import { LoginButtonComponent } from '../login-button/login-button.component'
 @Component({
   selector: 'app-tool-bar',
   standalone: true,
-  imports: [MatToolbarModule, MatButtonModule, MatIconModule, LoginButtonComponent],
+  imports: [
+    MatToolbarModule,
+    MatButtonModule,
+    MatIconModule,
+    LoginButtonComponent,
+  ],
   templateUrl: './tool-bar.component.html',
-  styleUrl: './tool-bar.component.scss'
+  styleUrl: './tool-bar.component.scss',
 })
-export class ToolBarComponent {
-
-}
+export class ToolBarComponent { }
