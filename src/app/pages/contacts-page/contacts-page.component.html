@@ -1,5 +1,5 @@
-@if (data$ | async; as data) {
-  @for (contact of data; track contact.id) {
-    <h3 matLine>{{ contact.username }}</h3>
-  }
+@for (user of users; track user.id) {
+  <app-custom-button (click)="moreUserDetails(user.id)">
+    {{ user.name }}
+  </app-custom-button>
 }
