@@ -39,4 +39,8 @@
   </mat-form-field>
 
   <app-custom-button (click)="login()">Iniciar sesion</app-custom-button>
+
+  @if (data$ | async; as data) {
+    <p>{{ data | json }}</p>
+  }
 </form>
