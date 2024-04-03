@@ -1,4 +1,3 @@
-import { AsyncPipe, JsonPipe } from '@angular/common'
 import { Component, inject } from '@angular/core'
 import {
   FormControl,
@@ -26,7 +25,7 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 @Component({
   selector: 'app-login-form',
   standalone: true,
-  imports: [FormsModule, MatFormFieldModule, MatInputModule, ReactiveFormsModule, CustomButtonComponent, JsonPipe, AsyncPipe],
+  imports: [FormsModule, MatFormFieldModule, MatInputModule, ReactiveFormsModule, CustomButtonComponent],
   templateUrl: './login-form.component.html',
   styleUrl: './login-form.component.scss'
 })
