@@ -7,6 +7,16 @@ import { Injectable, inject } from '@angular/core'
 export class LoginRequestService {
   http = inject(HttpClient);
   loginRequest() {
-    return this.http.get('https://jsonplaceholder.typicode.com/users')
+    return this.http.post('https://nest-frnbrz-api.onrender.com/api/v1/auth/login', {
+      email: 'a@a.com',
+      password: '123'
+    },
+      {
+        headers: {
+          'Access-Control-Allow-Origin': '*',
+          'Content-Type': 'application/json'
+        }
+      }
+    )
   }
 }
