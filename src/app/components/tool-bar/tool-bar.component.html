@@ -3,5 +3,10 @@
     <img src="assets/angular.svg" alt="Logo" width="44" />
     <span>Ejemplo open bootcamp angular</span>
     <app-login-button />
+
+    <app-link-custom [url]="'/home'">Home</app-link-custom>
+    @if (isLoggedIn) {
+      <app-link-custom [url]="'/contacts'">Contactos</app-link-custom>
+    }
   </mat-toolbar>
 </p>
