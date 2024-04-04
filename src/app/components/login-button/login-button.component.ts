@@ -1,5 +1,6 @@
-import { Component } from '@angular/core'
+import { Component, inject } from '@angular/core'
 import { MatButtonModule } from '@angular/material/button'
+import { Router } from '@angular/router'
 
 @Component({
   selector: 'app-login-button',
@@ -9,6 +10,7 @@ import { MatButtonModule } from '@angular/material/button'
   styleUrl: './login-button.component.scss',
 })
 export class LoginButtonComponent {
+  router = inject(Router);
   token = window.localStorage.getItem('token') || '';
   text = this.token ? 'Logout' : 'Login';
   constructor() { }
@@ -18,7 +20,7 @@ export class LoginButtonComponent {
       window.localStorage.removeItem('token')
       window.location.reload()
     } else {
-      window.localStorage.setItem('token', '1234')
+      this.router.navigate(['/login'])
     }
   }
 }

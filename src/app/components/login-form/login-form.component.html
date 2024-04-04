@@ -25,6 +25,7 @@
       matInput
       [formControl]="passwordFormControl"
       [errorStateMatcher]="matcher"
+      required
       placeholder="*****" />
     <mat-hint></mat-hint>
     @if (
@@ -38,5 +39,13 @@
     }
   </mat-form-field>
 
-  <app-custom-button (click)="login()">Iniciar sesion</app-custom-button>
+  <app-custom-button
+    (click)="login()"
+    [isDisabled]="
+      !emailFormControl.hasError('password') &&
+      !emailFormControl.hasError('email') &&
+      emailFormControl.hasError('required')
+    ">
+    Iniciar sesion</app-custom-button
+  >
 </form>

@@ -10,7 +10,7 @@ import {
 import { ErrorStateMatcher } from '@angular/material/core'
 import { MatFormFieldModule } from '@angular/material/form-field'
 import { MatInputModule } from '@angular/material/input'
-import { Observable } from 'rxjs'
+import { Router } from '@angular/router'
 import { LoginRequestService } from '../../services/login-request.service'
 import { CustomButtonComponent } from '../custom-button/custom-button.component'
 
@@ -31,17 +31,22 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 })
 export class LoginFormComponent {
   loginService = inject(LoginRequestService)
-
+  router = inject(Router)
   emailFormControl = new FormControl('', [Validators.required, Validators.email]);
   passwordFormControl = new FormControl('', [Validators.required]);
   matcher = new MyErrorStateMatcher();
-
-  data$: Observable<any> | undefined
+  isDisabled = true;
 
   constructor() { }
 
-  login() {
-    this.data$ = this.loginService.loginRequest()
-    console.log(this.data$)
+  async login() {
+    this.loginService.loginRequest().subscribe((data: any) => {
+      window.localStorage.setItem('token', data?.token)
+      this.router.navigate(['/contacts'])
+    })
+  }
+
+  handleFormChange() {
+    this.isDisabled = !this.emailFormControl.valid || !this.passwordFormControl.valid
   }
 }
