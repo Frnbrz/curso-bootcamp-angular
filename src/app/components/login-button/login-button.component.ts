@@ -1,5 +1,5 @@
 import { AsyncPipe, JsonPipe } from '@angular/common'
-import { Component, inject } from '@angular/core'
+import { Component, inject, OnChanges, signal } from '@angular/core'
 import { MatButtonModule } from '@angular/material/button'
 import { Router } from '@angular/router'
 
@@ -10,18 +10,26 @@ import { Router } from '@angular/router'
   templateUrl: './login-button.component.html',
   styleUrl: './login-button.component.scss',
 })
-export class LoginButtonComponent {
+export class LoginButtonComponent implements OnChanges {
   router = inject(Router);
   token = window.localStorage.getItem('token') || '';
-  isLoggedIn = this.token !== '' ? true : false;
-  constructor() { }
+  isLoggedIn = signal<boolean>(this.token === '' ? false : true);
+
+  ngOnChanges(): void {
+    this.isLoggedIn.set(this.token === '' ? false : true)
+  }
 
   handleClick(): void {
-    if (this.token) {
+    if (this.token !== '') {
       window.localStorage.removeItem('token')
       this.router.navigate(['/home'])
     } else {
       this.router.navigate(['/login'])
+
     }
+  }
+
+  changeLoginStatus(): void {
+    this.isLoggedIn.set(false)
   }
 }
