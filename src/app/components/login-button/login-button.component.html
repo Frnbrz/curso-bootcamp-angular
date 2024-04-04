@@ -1,5 +1,5 @@
 <button mat-stroked-button (click)="handleClick()">
-  @if (isLoggedIn) {
+  @if (isLoggedIn()) {
     Logout
   } @else {
     Login
