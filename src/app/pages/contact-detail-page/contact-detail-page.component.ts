@@ -1,11 +1,12 @@
 import { Component, inject, OnInit } from '@angular/core'
 import { ActivatedRoute } from '@angular/router'
+import { CustomCardComponent } from '../../components/custom-card/custom-card.component'
 import { UserServiceService } from '../../services/user-service.service'
 
 @Component({
   selector: 'app-contact-detail-page',
   standalone: true,
-  imports: [],
+  imports: [CustomCardComponent],
   templateUrl: './contact-detail-page.component.html',
   styleUrl: './contact-detail-page.component.scss',
 })

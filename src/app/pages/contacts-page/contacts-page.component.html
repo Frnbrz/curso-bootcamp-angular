@@ -1,5 +1,7 @@
-@for (user of users; track user.id) {
-  <app-custom-button (click)="moreUserDetails(user.id)">
-    {{ user.name }}
-  </app-custom-button>
-}
+<div class="contacts-container">
+  @for (user of users; track user.id) {
+    <app-custom-button (click)="moreUserDetails(user.id)">
+      <span class="contacts-button-id">{{ user.id }}</span> {{ user.name }}
+    </app-custom-button>
+  }
+</div>
