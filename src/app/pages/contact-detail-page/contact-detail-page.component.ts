@@ -1,5 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core'
-import { ActivatedRoute } from '@angular/router'
+import { Component, inject, Input, OnInit } from '@angular/core'
 import { CustomCardComponent } from '../../components/custom-card/custom-card.component'
 import { UserServiceService } from '../../services/user-service.service'
 
@@ -11,16 +10,13 @@ import { UserServiceService } from '../../services/user-service.service'
   styleUrl: './contact-detail-page.component.scss',
 })
 export class ContactDetailPageComponent implements OnInit {
-
-  private activatedRoute = inject(ActivatedRoute);
+  @Input('id') userId: string = '';
   private userServuce = inject(UserServiceService);
   user: any
 
 
   ngOnInit() {
-    this.activatedRoute.params.subscribe(params => {
-      this.loadUser(params['id'])
-    })
+    this.loadUser(Number(this.userId))
   }
 
   loadUser(id: number) {
