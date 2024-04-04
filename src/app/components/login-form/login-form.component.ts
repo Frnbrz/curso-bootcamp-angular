@@ -40,7 +40,9 @@ export class LoginFormComponent {
   constructor() { }
 
   async login() {
-    this.loginService.loginRequest().subscribe((data: any) => {
+    const password: string = this.passwordFormControl.value || ''
+    const email: string = this.emailFormControl.value || ''
+    this.loginService.loginRequest(email, password).subscribe((data: any) => {
       window.localStorage.setItem('token', data?.token)
       this.router.navigate(['/contacts'])
     })
