@@ -12,4 +12,6 @@ import { MatIconModule } from '@angular/material/icon'
 })
 export class CustomButtonComponent {
   @Input() url: string = '';
+
+  @Input() isDisabled: boolean = false;
 }
