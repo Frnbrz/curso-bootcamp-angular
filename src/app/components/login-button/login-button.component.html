@@ -1,3 +1,7 @@
 <button mat-stroked-button (click)="handleClick()">
-  {{ text }}
+  @if (isLoggedIn) {
+    Logout
+  } @else {
+    Login
+  }
 </button>
