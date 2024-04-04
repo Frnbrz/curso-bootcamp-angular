@@ -29,6 +29,6 @@ export class ContactsPageComponent implements OnInit {
 
 
   moreUserDetails(id: string) {
-    this.router.navigate(['/contact', id])
+    this.router.navigate(['/contacts', id])
   }
 }
