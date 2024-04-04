@@ -1,10 +1,13 @@
 import { ApplicationConfig } from '@angular/core'
-import { provideRouter, withViewTransitions } from '@angular/router'
+import { provideRouter, withComponentInputBinding, withViewTransitions } from '@angular/router'
 
-import { provideHttpClient, withFetch } from '@angular/common/http'
+import { provideHttpClient, withFetch, withInterceptors } from '@angular/common/http'
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async'
 import { routes } from './app.routes'
+import { errorResponseInterceptor } from './interceptors/error-response.interceptor'
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideRouter(routes, withViewTransitions()), provideAnimationsAsync(), provideHttpClient(withFetch())],
+  providers: [provideRouter(routes, withComponentInputBinding(), withViewTransitions()), provideAnimationsAsync(), provideHttpClient(withFetch(), withInterceptors([
+    errorResponseInterceptor
+  ]))],
 }
