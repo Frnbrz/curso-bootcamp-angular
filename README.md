@@ -1,1 +1,20 @@
-https://www.youtube.com/watch?v=ZtgkFY896Vk&list=PLkVpKYNT_U9eZnc8zOyXZnKVvzt9yWws0&index=8
+# Angular 17
+
+## Front-end : What's included
+
+> Dependencies
+
+- [x] Angular : 17
+- [ ] Angular CLI : 17
+- [ ] Angular SSR : 17
+
+> Features
+
+- [x] Routing
+- [x] Lazy Loading
+- [x] Responsive Layout
+- [x] Components
+- [x] Services
+- [x] Reactive Form
+- [x] Template Driven Forms
+- [x] Search / Grid / Pagination
