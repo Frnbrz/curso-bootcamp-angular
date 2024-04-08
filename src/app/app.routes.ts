@@ -7,10 +7,14 @@ export const routes: Routes = [
   { path: 'home', component: HomePageComponent },
   { path: 'login', loadComponent: () => import('./pages/login-page/login-page.component').then(m => m.LoginPageComponent) },
   {
+    path: 'users', loadComponent: () => import('./pages/users-page/users-page.component').then(m => m.UsersPageComponent),
+  },
+  {
     path: 'contacts',
     canActivate: [authGuard],
     children: [
       { path: '', loadComponent: () => import('./pages/contacts-page/contacts-page.component').then(m => m.ContactsPageComponent) },
+
       { path: ':id', loadComponent: () => import('./pages/contact-detail-page/contact-detail-page.component').then(m => m.ContactDetailPageComponent) },
     ],
   },
