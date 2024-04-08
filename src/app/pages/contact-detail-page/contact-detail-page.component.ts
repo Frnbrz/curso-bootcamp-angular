@@ -1,6 +1,6 @@
 import { Component, inject, Input, OnInit } from '@angular/core'
 import { CustomCardComponent } from '../../components/custom-card/custom-card.component'
-import { UserServiceService } from '../../services/user-service.service'
+import { ContactsService } from '../../services/contacts.service'
 
 @Component({
   selector: 'app-contact-detail-page',
@@ -11,7 +11,7 @@ import { UserServiceService } from '../../services/user-service.service'
 })
 export class ContactDetailPageComponent implements OnInit {
   @Input('id') userId: string = '';
-  private userServuce = inject(UserServiceService);
+  private contactService = inject(ContactsService);
   user: any
 
 
@@ -20,7 +20,7 @@ export class ContactDetailPageComponent implements OnInit {
   }
 
   loadUser(id: number) {
-    this.userServuce.getUsers(id)
+    this.contactService.getUser(id)
       .subscribe((user: any) => {
         this.user = user
       })

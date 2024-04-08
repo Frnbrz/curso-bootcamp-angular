@@ -1,7 +1,7 @@
 import { Component, inject, OnInit } from '@angular/core'
 import { Router } from '@angular/router'
 import { CustomButtonComponent } from '../../components/custom-button/custom-button.component'
-import { UsersServiceService } from '../../services/users-service.service'
+import { ContactsService } from '../../services/contacts.service'
 
 @Component({
   selector: 'app-contacts-page',
@@ -11,7 +11,7 @@ import { UsersServiceService } from '../../services/users-service.service'
   styleUrl: './contacts-page.component.scss',
 })
 export class ContactsPageComponent implements OnInit {
-  private usersService = inject(UsersServiceService);
+  private contactService = inject(ContactsService);
   router = inject(Router);
   users: any[] = []
 
@@ -20,7 +20,7 @@ export class ContactsPageComponent implements OnInit {
   }
 
   loadUsers() {
-    this.usersService.getUsers()
+    this.contactService.getUsers()
       .subscribe((users: any) => {
         this.users = users
       })
