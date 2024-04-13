@@ -10,6 +10,9 @@ export const routes: Routes = [
     path: 'users', loadComponent: () => import('./pages/users-page/users-page.component').then(m => m.UsersPageComponent),
   },
   {
+    path: 'vista-avanzada', loadComponent: () => import('./pages/vista-avanzada/vista-avanzada.component').then(m => m.VistaAvanzadaComponent),
+  },
+  {
     path: 'contacts',
     canActivate: [authGuard],
     children: [
